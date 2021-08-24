@@ -11,15 +11,15 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # Install deps
 RUN apt install -qq -y --no-install-recommends \
-    ca-certificates \
-    curl \
-    git \
-    x11-apps \
-    tzdata \
-    im-config \
-    libxshmfence-dev \
-    libnss3-dev \
-    language-pack-ja-base language-pack-ja fonts-noto-cjk fcitx-mozc \
+    bison build-essential ca-certificates \
+    clang curl fcitx-mozc \
+    fonts-noto-cjk g++-multilib gcc-multilib \
+    git gperf im-config \
+    language-pack-ja language-pack-ja-base libasound2-dev \
+    libcap-dev libcups2-dev libdbus-1-dev \
+    libgtk-3-dev libnotify-dev \
+    libnss3-dev libxshmfence-dev libxss1 \
+    libxtst-dev openjdk-8-jre tzdata x11-apps \
     && im-config -n fcitx
 
 # Install nvm and Nodejs
