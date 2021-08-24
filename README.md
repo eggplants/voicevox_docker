@@ -7,8 +7,8 @@
 ## Run
 
 ```bash
-$ docker build -t voicevox .
-$ docker run -d -p 80:80 voicevox
+$ docker build -t voicevox_engine .
+$ docker run -d -p 80:80 voicevox_engine
 $ curl localhost:80/version
 "0.4.1"
 $ xdg-open http://localhost:80/docs # open API docs
