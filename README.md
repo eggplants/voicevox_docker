@@ -38,10 +38,12 @@ $ ./test.sh
 ## from source
 $ docker build -t voicevox_desktop voicevox_desktop/
 ## ...or, from dockerhub
-$ docker run -v /tmp/.X11-unix/:/tmp/.X11-unix eggplanter/voicevox_desktop
+$ docker pull eggplanter/voicevox_desktop
 
-# check
-[WIP]
+# launch
+$ docker run -w /voicevox \
+         -v $HOME/.Xauthority:/root/.Xauthority \
+         -e DISPLAY=$DISPLAY -it --rm --network=host npm run electron:serve
 ```
 
 ## Reference
