@@ -1,8 +1,5 @@
 # syntax=docker/dockerfile:1
 
-# docker build -t voicevox .
-# docker run -d -p 80:80 voicevox
-
 FROM ubuntu:20.04
 RUN apt update
 
