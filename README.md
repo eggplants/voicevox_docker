@@ -43,7 +43,7 @@ $ docker pull eggplanter/voicevox_desktop
 # launch
 $ docker run -w /voicevox \
          -v $HOME/.Xauthority:/root/.Xauthority \
-         -e DISPLAY=$DISPLAY -it --rm --network=host npm run electron:serve
+         -e DISPLAY=$DISPLAY -it --rm --network=host voicevox_desktop
 ```
 
 ## Reference
