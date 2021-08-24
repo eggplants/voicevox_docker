@@ -2,7 +2,7 @@
 
 [![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/eggplanter/voicevox)](https://hub.docker.com/repository/docker/eggplanter/voicevox)
 
-- [VOICEVOX](https://voicevox.hiroshiba.jp/) on Docker
+- [VOICEVOX](https://voicevox.hiroshiba.jp/) backend API on Docker
 
 ## Run
 
