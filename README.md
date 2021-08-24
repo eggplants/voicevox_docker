@@ -15,17 +15,32 @@
 ## Engine
 
 ```bash
-# from source
+# build
+## from source
+$ docker build -t voicevox_engine voicevox_engine/
+## ...or, from dockerhub
 $ docker run -d -p 80:80 eggplanter/voicevox_engine
+
+# check
+## show version
 $ curl localhost:80/version
 "0.4.1"
-$ xdg-open http://localhost:80/docs # open API docs
-$ ./test.sh # it will read out "ABCDEF"
+## open docs
+$ xdg-open http://localhost:80/docs
+## generate voice and play
+$ ./test.sh
 ```
 
 ## Desktop app
 
 ```bash
+# build
+## from source
+$ docker build -t voicevox_desktop voicevox_desktop/
+## ...or, from dockerhub
+$ docker run -v /tmp/.X11-unix/:/tmp/.X11-unix eggplanter/voicevox_desktop
+
+# check
 [WIP]
 ```
 
