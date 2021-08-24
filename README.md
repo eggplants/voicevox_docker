@@ -1,6 +1,6 @@
 # voicevox_docker
 
-[![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/eggplanter/voicevox)](https://hub.docker.com/repository/docker/eggplanter/voicevox)
+[![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/eggplanter/voicevox_engine)](https://hub.docker.com/repository/docker/eggplanter/voicevox_engine)
 
 - [VOICEVOX](https://voicevox.hiroshiba.jp/) backend API on Docker
 
