@@ -6,9 +6,9 @@
 
 ## Image
 
-| Engine                                                                                | desktop |
-| ------------------------------------------------------------------------------------- | ------- |
-| [![engine size]](https://hub.docker.com/repository/docker/eggplanter/voicevox_engine) | [WIP]   |
+| Engine                                                                                | desktop                                                                                 |
+| ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| [![engine size]](https://hub.docker.com/repository/docker/eggplanter/voicevox_engine) | [![desktop size]](https://hub.docker.com/repository/docker/eggplanter/voicevox_desktop) |
 
 ## Run
 
@@ -34,3 +34,4 @@ $ ./test.sh # it will read out "ABCDEF"
 - [テキスト読み上げソフトウェアの VOICEVOX を Linux で使ってみて思ったこと](https://zenn.dev/tantan_tanuki/articles/78428a29aab2d2)
 
 [engine size]: https://img.shields.io/docker/image-size/eggplanter/voicevox_engine
+[desktop size]: https://img.shields.io/docker/image-size/eggplanter/voicevox_desktop
