@@ -15,7 +15,7 @@
 ## Engine + Desktop app
 
 ```bash
-$ docker compose up -d
+$ docker-compose up -d
 ```
 
 ## Engine
