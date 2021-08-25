@@ -2,6 +2,7 @@ version: "3"
 services:
   desktop:
     build: ./
+    container_name: eggplanter/voicevox_desktop
     working_dir: /voicevox
     volumes:
       - /tmp/.X11-unix/:/tmp/.X11-unix/

@@ -2,10 +2,12 @@ version: "3"
 services:
   engine:
     build: ./voicevox_engine/
+    container_name: eggplanter/voicevox_engine
     ports:
       - "80:80"
   desktop:
     build: ./voicevox_desktop/
+    container_name: eggplanter/voicevox_desktop
     working_dir: /voicevox
     volumes:
       - /tmp/.X11-unix/:/tmp/.X11-unix/

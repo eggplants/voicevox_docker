@@ -23,7 +23,7 @@ $ docker compose up -d
 ```bash
 # build & run
 ## from source
-$ cd docker_engine && docker compose up -d
+$ cd docker_engine && docker-compose up -d
 ## ...or, from dockerhub
 $ docker run -d -p 80:80 eggplanter/voicevox_engine
 
@@ -45,7 +45,7 @@ non-network local connections being added to access control list
 
 # build & run
 ## from source
-$ cd docker_desktop && docker compose up -d
+$ cd docker_desktop && docker-compose up -d
 ## ...or, from dockerhub
 $ docker run -w /voicevox \
          -v /tmp/.X11-unix/:/tmp/.X11-unix/ \
