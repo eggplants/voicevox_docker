@@ -26,6 +26,8 @@ $ docker-compose up -d
 $ cd docker_engine && docker-compose up -d
 ## ...or, from dockerhub
 $ docker run -d -p 80:80 eggplanter/voicevox_engine
+$ docker ps|awk '/voicevox_engine/{print $1,$2}'
+4fcd18217de9 eggplanter/voicevox_engine
 
 # check
 ## show version
