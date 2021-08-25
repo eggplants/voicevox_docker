@@ -6,18 +6,24 @@
 
 ## Image
 
-| Engine                                                                                | desktop                                                                                 |
+| Engine                                                                                | Desktop app                                                                             |
 | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | [![engine size]](https://hub.docker.com/repository/docker/eggplanter/voicevox_engine) | [![desktop size]](https://hub.docker.com/repository/docker/eggplanter/voicevox_desktop) |
 
 ## Run
 
+## Engine + Desktop app
+
+```bash
+$ docker compose up -d
+```
+
 ## Engine
 
 ```bash
-# build
+# build & run
 ## from source
-$ docker build -t voicevox_engine voicevox_engine/
+$ cd docker_engine && docker compose up -d
 ## ...or, from dockerhub
 $ docker run -d -p 80:80 eggplanter/voicevox_engine
 
@@ -34,16 +40,17 @@ $ ./test.sh
 ## Desktop app
 
 ```bash
-# build
-## from source
-$ docker build -t voicevox_desktop voicevox_desktop/
-## ...or, from dockerhub
-$ docker pull eggplanter/voicevox_desktop
+$ xhost local:
+non-network local connections being added to access control list
 
-# launch
+# build & run
+## from source
+$ cd docker_desktop && docker compose up -d
+## ...or, from dockerhub
 $ docker run -w /voicevox \
-         -v $HOME/.Xauthority:/root/.Xauthority \
-         -e DISPLAY=$DISPLAY -it --rm --network=host voicevox_desktop
+         -v /tmp/.X11-unix/:/tmp/.X11-unix/ \
+         -e DISPLAY=$DISPLAY -it --rm --network=host \
+         eggplanter/voicevox_desktop
 ```
 
 ## Reference
