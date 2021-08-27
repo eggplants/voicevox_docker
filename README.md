@@ -2,7 +2,9 @@
 
 - [VOICEVOX](https://voicevox.hiroshiba.jp/) on Docker
   - Engine src: [Hiroshiba/voicevox_engine](https://github.com/Hiroshiba/voicevox_engine)
+    - stable 
   - Desktop app src: [Hiroshiba/voicevox](https://github.com/Hiroshiba/voicevox)
+    - unstable (may be not compatible depends on running environments)
 
 ## Image
 
