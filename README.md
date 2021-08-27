@@ -2,9 +2,7 @@
 
 - [VOICEVOX](https://voicevox.hiroshiba.jp/) on Docker
   - Engine src: [Hiroshiba/voicevox_engine](https://github.com/Hiroshiba/voicevox_engine)
-    - stable 
   - Desktop app src: [Hiroshiba/voicevox](https://github.com/Hiroshiba/voicevox)
-    - unstable (may be not compatible depends on running environments)
 
 ## Image
 
@@ -14,18 +12,20 @@
 
 ## Run
 
-## Engine + Desktop app
+- First,
 
 ```bash
-$ docker-compose up -d
+$ git clone https://github.com/eggplants/voicevox_docker
 ```
 
 ## Engine
 
+- stable
+
 ```bash
 # build & run
 ## from source
-$ cd docker_engine && docker-compose up -d
+$ cd voicevox_docker/docker_engine && docker-compose up -d
 ## ...or, from dockerhub
 $ docker run -d -p 80:80 eggplanter/voicevox_engine
 $ docker ps|awk '/voicevox_engine/{print $1,$2}'
@@ -43,18 +43,27 @@ $ ./test.sh
 
 ## Desktop app
 
+- unstable (may be not compatible depends on running environments)
+
 ```bash
 $ xhost local:
 non-network local connections being added to access control list
 
 # build & run
 ## from source
-$ cd docker_desktop && docker-compose up -d
+$ cd voicevox_docker/docker_desktop && docker-compose up -d
 ## ...or, from dockerhub
 $ docker run -w /voicevox \
          -v /tmp/.X11-unix/:/tmp/.X11-unix/ \
          -e DISPLAY=$DISPLAY -it --rm --network=host \
          eggplanter/voicevox_desktop
+```
+
+## Engine + Desktop app
+
+```bash
+$ cd voicevox_docker
+$ docker-compose up -d
 ```
 
 ## Reference
