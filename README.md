@@ -8,7 +8,7 @@
 
 | Engine                                                                                | Desktop app                                                                             |
 | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| [![engine size]](https://hub.docker.com/repository/docker/eggplanter/voicevox_engine) | [![desktop size]](https://hub.docker.com/repository/docker/eggplanter/voicevox_desktop) |
+| [![engine size]](https://hub.docker.com/r/eggplanter/voicevox_engine) | [![desktop size]](https://hub.docker.com/r/eggplanter/voicevox_desktop) |
 
 ## Run
 
