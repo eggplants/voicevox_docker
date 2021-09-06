@@ -12,45 +12,48 @@
 
 ## Run
 
-## Engine + Desktop app
-
-```bash
-$ docker-compose up -d
-```
-
 ## Engine
 
-```bash
-# build & run
-## from source
-$ cd docker_engine && docker-compose up -d
-## ...or, from dockerhub
-$ docker run -d -p 80:80 eggplanter/voicevox_engine
+### Run
 
-# check
-## show version
-$ curl localhost:80/version
-"0.4.1"
-## open docs
-$ xdg-open http://localhost:80/docs
-## generate voice and play
-$ ./test.sh
+```bash
+curl -sL https://git.io/JuYaR | docker-compose -f- up -d
+# or...
+docker run -d -p 80:80 eggplanter/voicevox_engine
+```
+
+### Check if service is running
+
+```bash
+# show version
+curl localhost:80/version
+# open docs
+xdg-open http://localhost:80/docs
+# generate voice and play
+text="おっはよーーーーー！"
+curl -s \
+    -X POST \
+    "localhost:80/audio_query?text=$text&speaker=1" |
+curl -s \
+    -H "Content-Type: application/json" \
+    -X POST \
+    -d @/dev/stdin \
+    "localhost:80/synthesis?speaker=1"
 ```
 
 ## Desktop app
 
-```bash
-$ xhost local:
-non-network local connections being added to access control list
+### Run
 
-# build & run
-## from source
-$ cd docker_desktop && docker-compose up -d
-## ...or, from dockerhub
-$ docker run -w /voicevox \
-         -v /tmp/.X11-unix/:/tmp/.X11-unix/ \
-         -e DISPLAY=$DISPLAY -it --rm --network=host \
-         eggplanter/voicevox_desktop
+```bash
+xhost local:
+
+curl -sL https://git.io/JuYVJ | docker-compose -f- up
+## ...or
+docker run -w /voicevox \
+           -v /tmp/.X11-unix/:/tmp/.X11-unix/ \
+           -e DISPLAY=$DISPLAY -it --network=host \
+           eggplanter/voicevox_desktop
 ```
 
 ## Reference

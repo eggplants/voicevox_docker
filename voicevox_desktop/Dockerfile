@@ -1,24 +1,20 @@
-# syntax=docker/dockerfile:1
-
 FROM ubuntu:20.04
 SHELL ["/bin/bash", "-c"]
-
-RUN apt update
 
 # Set ENV
 ENV TZ Asia/Tokyo
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install deps
-RUN apt install -qq -y --no-install-recommends \
+RUN apt-get update -qq -y \
+    && apt-get install -qq -y --no-install-recommends \
     bison build-essential ca-certificates clang curl \
     g++-multilib gcc-multilib git gperf libasound2-dev \
     libcap-dev libcups2-dev libdbus-1-dev libgtk-3-dev \
     libnotify-dev libnss3-dev libxss1 libxtst-dev \
     openjdk-8-jre tzdata x11-apps
 
-RUN apt-get update \
-    && apt install -qq -y \
+RUN apt-get install -qq -y \
     language-pack-ja-base language-pack-ja fonts-noto-cjk fcitx-mozc \
     && im-config -n fcitx
 
@@ -43,12 +39,12 @@ ENV PATH $PATH:/usr/local/node-${NODE_VERSION}-linux-x64/bin
 RUN node --version && npm --version
 
 # add user
-ARG DOCKER_UID=1000
-ARG DOCKER_USER=docker
-ARG DOCKER_PASSWORD=docker
-RUN useradd -m \
-  --uid ${DOCKER_UID} --groups sudo ${DOCKER_USER} \
-  && echo ${DOCKER_USER}:${DOCKER_PASSWORD} | chpasswd
+# ARG DOCKER_UID=1000
+# ARG DOCKER_USER=docker
+# ARG DOCKER_PASSWORD=docker
+# RUN useradd -m \
+#   --uid ${DOCKER_UID} --groups sudo ${DOCKER_USER} \
+#   && echo ${DOCKER_USER}:${DOCKER_PASSWORD} | chpasswd
 
 # Clone Repo
 RUN export GIT_SSL_NO_VERIFY=1 \
@@ -60,6 +56,6 @@ RUN cd voicevox \
     && npm config set unsafe-perm true \
     && npm ci
 
-USER ${DOCKER_USER}
+# USER ${DOCKER_USER}
 WORKDIR /voicevox
-# CMD npm run electron:serve
+CMD npm run electron:serve

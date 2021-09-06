@@ -1,14 +1,12 @@
 version: "3"
 services:
   desktop:
-    build: ./
-    container_name: eggplanter/voicevox_desktop
+    network_mode: host
+    image: eggplanter/voicevox_desktop
     working_dir: /voicevox
     volumes:
       - /tmp/.X11-unix/:/tmp/.X11-unix/
     environment:
-      - DISPLAY=$DISPLAY
+      - DISPLAY=${DISPLAY}
     tty: true
     stdin_open: true
-    networks:
-      - host
