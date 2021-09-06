@@ -21,7 +21,10 @@ RUN apt-get update -y -qq \
 
 # Download VOICEVOX Archived file
 ENV VOICEVOX_DRIVE_ID 1l-VsodiRw4cgWW6XZCgWpRigiPFRrqNQ
-RUN curl -s gdrive.sh | bash -s "$VOICEVOX_DRIVE_ID"
+RUN curl -s gdrive.sh | bash -s "$VOICEVOX_DRIVE_ID" \
+    && [ -f *.zip ] || { \
+    echo "Error: VOICEVOX archive file is currently restricted by gdrive." >&2 \
+    && exit 1;}
 
 # Extract Zip
 RUN unar VOICEVOX\ *.zip && rm VOICEVOX\ *.zip && mv VOICEVOX\ * VOICEVOX_
