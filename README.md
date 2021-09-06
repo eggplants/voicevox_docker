@@ -8,9 +8,7 @@
 
 | Engine                                                                                | Desktop app                                                                             |
 | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| [![engine size]](https://hub.docker.com/repository/docker/eggplanter/voicevox_engine) | [![desktop size]](https://hub.docker.com/repository/docker/eggplanter/voicevox_desktop) |
-
-## Run
+| [![engine size]](https://hub.docker.com/r/eggplanter/voicevox_engine) | [![desktop size]](https://hub.docker.com/r/eggplanter/voicevox_desktop) |
 
 ## Engine
 
@@ -22,7 +20,9 @@ curl -sL https://git.io/JuYaR | docker-compose -f- up -d
 docker run -d -p 80:80 eggplanter/voicevox_engine
 ```
 
-### Check if service is running
+### Check if engine is running
+
+- stable
 
 ```bash
 # show version
@@ -49,7 +49,7 @@ curl -s \
 xhost local:
 
 curl -sL https://git.io/JuYVJ | docker-compose -f- up
-## ...or
+# ...or
 docker run -w /voicevox \
            -v /tmp/.X11-unix/:/tmp/.X11-unix/ \
            -e DISPLAY=$DISPLAY -it --network=host \
