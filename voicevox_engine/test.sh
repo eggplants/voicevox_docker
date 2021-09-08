@@ -12,6 +12,11 @@ if [ "$(curl localhost:80/version -o /dev/null -w '%{http_code}' -s)" -ne 200 ];
 
   echo "[+]: Waiting for launching API server of VOICEVOX engine..."
   while :; do
+    docker ps|grep "eggplanter/voicevox_engine" -q || {
+      echo "[!]: Maybe container is down after launching.">&2
+      echo "[!]: See: https://stackoverflow.com/a/66137732">&2
+      exit 1
+    }
     s="$(curl localhost:80/version -o /dev/null -w '%{http_code}' -s)"
     if [ "$s" -eq 200 ]; then
       break
