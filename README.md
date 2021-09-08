@@ -33,7 +33,7 @@ xdg-open http://localhost:80/docs
 text="今日のご飯はカツ丼だよ。"
 curl -X POST \
      "localhost:80/audio_query?text=$(<<<"$text" \
-     perl -MURI::Escape -C -plE'$_=uri_escape_utf8$_'
+     nkf -WwMQ | sed 's/=$//g' | tr = % | tr -d '\n'
      )&speaker=1" |
 curl -H "Content-Type: application/json" \
      -X POST -d @- \
