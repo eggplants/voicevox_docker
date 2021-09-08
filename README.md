@@ -27,7 +27,7 @@ docker run -d -p 80:80 eggplanter/voicevox_engine
 ```bash
 # show version
 curl localhost:80/version #=> returns "0.4.1" when waking up
-# open docs
+# open API docs
 xdg-open http://localhost:80/docs
 # generate voice and play
 text="今日のご飯はカツ丼だよ。"
@@ -36,9 +36,8 @@ curl -X POST \
      perl -MURI::Escape -C -plE'$_=uri_escape_utf8$_'
      )&speaker=1" |
 curl -H "Content-Type: application/json" \
-     -X POST -d @/dev/stdin \
-    "localhost:80/synthesis?speaker=1">test.wav
-aplay test.wav
+     -X POST -d @- \
+    "localhost:80/synthesis?speaker=1" | aplay -
 ```
 
 ## Desktop app
