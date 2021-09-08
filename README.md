@@ -6,8 +6,8 @@
 
 ## Image
 
-| Engine                                                                                | Desktop app                                                                             |
-| ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Engine                                                                | Desktop app                                                             |
+| --------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | [![engine size]](https://hub.docker.com/r/eggplanter/voicevox_engine) | [![desktop size]](https://hub.docker.com/r/eggplanter/voicevox_desktop) |
 
 ## Engine
@@ -21,8 +21,6 @@ docker run -d -p 80:80 eggplanter/voicevox_engine
 ```
 
 ### Check if engine is running
-
-- 
 
 ```bash
 # show version
